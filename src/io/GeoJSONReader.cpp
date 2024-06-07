@@ -228,7 +228,7 @@ std::unique_ptr<geom::Point> GeoJSONReader::readPoint(
 {
     const auto& coords = j.at("coordinates").get<std::vector<double>>();
     if (coords.size() == 1) {
-        throw  ParseException("Expected two coordinates found one");
+        throw  ParseException("Expected two or three coordinates found one");
     }
     else if (coords.size() < 2) {
         return geometryFactory.createPoint(2);
