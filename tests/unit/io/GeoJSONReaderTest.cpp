@@ -336,7 +336,7 @@ void object::test<22>
         errorMessage = e.what();
     }
     ensure(error == true);
-    ensure_equals(errorMessage, "ParseException: Expected two coordinates found one");
+    ensure_equals(errorMessage, "ParseException: Expected two or three coordinates found one");
 }
 
 // Throw ParseException for bad GeoJSON
@@ -374,7 +374,7 @@ void object::test<24>
         errorMessage = e.what();
     }
     ensure(error == true);
-    ensure_equals(errorMessage, "ParseException: Expected two coordinates found one");
+    ensure_equals(errorMessage, "ParseException: Expected two or three coordinates found one");
 }
 
 // Throw error when geometry type is unsupported
@@ -412,7 +412,7 @@ void object::test<26>
         errorMessage = e.what();
     }
     ensure(error == true);
-    ensure_equals(errorMessage, "ParseException: Expected two coordinates found one");
+    ensure_equals(errorMessage, "ParseException: Expected two or three coordinates found one");
 }
 
 // Read a GeoJSON empty Polygon with empty shell and empty inner rings
@@ -455,7 +455,7 @@ void object::test<29>
         errorMessage = e.what();
     }
     ensure(error == true);
-    ensure_equals(errorMessage, "ParseException: Expected two coordinates found more than two");
+    ensure_equals(errorMessage, "ParseException: Expected two or three coordinates found more than three");
 }
 
 // Throw ParseException for bad GeoJSON
