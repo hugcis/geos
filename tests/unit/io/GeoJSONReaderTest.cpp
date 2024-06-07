@@ -505,5 +505,17 @@ void object::test<31>
     ensure_equals(features.getFeatures()[8].getId(), "");
 }
 
+
+// Read a GeoJSON Point with 3D coordinates
+template<>
+template<>
+void object::test<32>
+()
+{
+    std::string geojson { "{\"type\":\"Point\",\"coordinates\":[-117.0,33.0,31.3]}" };
+    GeomPtr geom(geojsonreader.read(geojson));
+    ensure_equals(geom->toText(), "POINT Z (-117 33 31.3)");
+    ensure_equals(static_cast<size_t>(geom->getCoordinateDimension()), 3u);
+}
 }
 
